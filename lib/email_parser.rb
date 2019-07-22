@@ -12,7 +12,9 @@ attr_accessor :emails
   end
 
   def parse
-     @emails.split(/, | /).uniq
-  end
+      seperated_emails = @emails.split(/[ ,]/)
+      unique_emails = seperated_emails.uniq
+      unique_emails.reject {|email| email.empty?}
+    end
 
 end
